@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxFlex="100" fxLayoutGap="10px">
+    <mat-form-field fxFlex="40" fxFlex.lt-sm="50">
+        <mat-label>Task Name</mat-label>
+        <input matInput [formControl]="editTaskName">
+        <mat-error *ngIf="editTaskName.invalid">Task name is required</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFlex="20" fxFlex.lt-sm="30">
+        <button mat-icon-button [disabled]="editTaskName.invalid" (click)="editTask()" matTooltip="Save">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-icon-button (click)="cancelTask()" matTooltip="Cancel">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+<div fxLayout="column">
+    <mat-toolbar>
+        <span>TODO Application</span>
+    </mat-toolbar>
+
+    <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center start" fxFlex="100">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" class="task-heading-container">
+            <div fxFlex="70" class="mat-headline-6 task-headline" fxLayout="row" fxLayoutAlign="start center">
+                TODO Task
+            </div>
+            <button mat-mini-fab color="accent" matTooltip="Add Task" aria-label="Add Task" (click)="addTask()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <mat-form-field class="search-text-field">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="text" [formControl]="searchText" placeholder="Search">
+        </mat-form-field>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let task of taskList | filter:filterargs;let i = index" class="{{getListClass(i)}} task-list">
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="80" 
+                    fxFlex.lt-sm="60"
+                    *ngIf="!task.isEditing"
+                    class="mat-body-1 task-name"
+                    [ngStyle]="{'text-decoration':task.completed ? 'line-through' : 'none' }">
+                    {{task.taskName}}
+                </div>
+                <app-edit-task fxFlex="80"
+                    fxFlex.lt-sm="60" 
+                    *ngIf="task.isEditing" 
+                    [task]="task">
+                </app-edit-task>
+                <div fxFlex="20" fxFlex.lt-sm="40" fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-icon-button fxFlex="33" 
+                        matTooltip="Edit Task"
+                        aria-label="Edit Task"
+                        [disabled]="task.completed || task.isEditing"
+                        (click)="editTask(task)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button fxFlex="33" 
+                        [disabled]="task.completed" 
+                        (click)="deleteTask(task.id)"
+                        matTooltip="Delete Task"
+                        aria-label="Delete Task">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button fxFlex="33" 
+                        (click)="markAsCompleted(task)"
+                        [disabled]="task.completed"
+                        matTooltip="Mark as completed"
+                        aria-label="Mark as completed">
+                        <mat-icon>check_circle</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

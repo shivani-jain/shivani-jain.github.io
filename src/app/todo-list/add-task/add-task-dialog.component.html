@@ -1,0 +1,21 @@
+
+<mat-toolbar color="primary" mat-dialog-title fxLayout="row" fxLayoutAlign="start center">
+    <span fxFlex="85">Add Task</span>
+    <button mat-icon-button mat-dialog-close fxFlex="15">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-dialog-content fxLayoutAlign="center center" style="padding-top: 24px;">
+    <mat-form-field>
+        <mat-label>Task Name</mat-label>
+        <input matInput [formControl]="taskName">
+        <mat-error *ngIf="taskName.invalid">Task name is required</mat-error>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center">
+        <button mat-flat-button color="primary" [disabled]="taskName.invalid" (click)="addTask()">Add</button>
+        <button mat-flat-button mat-dialog-close>Cancel</button>
+    </div>
+</mat-dialog-actions>
