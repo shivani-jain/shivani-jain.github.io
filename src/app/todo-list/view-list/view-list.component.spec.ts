@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 import { ActivatedRoute } from '@angular/router';
@@ -6,8 +7,16 @@ import { AddTaskDialogComponent } from '../add-task/add-task-dialog.component';
 import { AddTaskDialogService } from './../add-task/add-task-dialog.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from './../../pipe/filter.pipe';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { TodoService } from 'src/app/services/todo.service';
 import { TodoTask } from 'src/app/models/todo-task';
 import { ViewListComponent } from './view-list.component';
@@ -28,6 +37,18 @@ describe('ViewListComponent', () => {
         HttpClientTestingModule,
         BrowserAnimationsModule,
         MatIconModule,
+        MatDialogModule,
+        MatInputModule,
+        MatCardModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatListModule,
+        MatIconModule,
+        MatTooltipModule,
+        FormsModule,
         MatDialogModule
       ],
       providers: [

@@ -63,7 +63,7 @@ export class ViewListComponent implements OnInit {
   addTask(): void {
     this.addTaskDialogService.show().afterClosed().subscribe((newTask: TodoTask) => {
       if (newTask) {
-        this.updateTaskList(newTask, false);
+        this.taskList.unshift(newTask)
       }
     });
   }

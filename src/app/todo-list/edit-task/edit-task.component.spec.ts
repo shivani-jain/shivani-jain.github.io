@@ -1,8 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { EditTaskComponent } from './edit-task.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { TodoService } from 'src/app/services/todo.service';
 import { of } from 'rxjs';
 
@@ -18,7 +24,13 @@ describe('EditTaskComponent - ', () => {
       declarations: [ EditTaskComponent ],
       imports: [
         HttpClientTestingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatDialogModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [
         { provide: TodoService, useValue: spy }

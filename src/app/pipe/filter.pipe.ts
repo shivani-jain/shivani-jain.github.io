@@ -12,7 +12,7 @@ import { TodoTask } from 'src/app/models/todo-task';
 export class FilterPipe implements PipeTransform {
 
   transform(items: TodoTask[], filter: { taskName: string }): any {
-    if (!items || !filter) {
+    if (!items || filter.taskName.length === 0) {
       return items;
     }
     // filter items array, items which match and return true will be

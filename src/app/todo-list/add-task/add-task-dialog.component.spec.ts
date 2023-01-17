@@ -1,9 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 import { AddTaskDialogComponent } from './add-task-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { TodoService } from 'src/app/services/todo.service';
 import { of } from 'rxjs';
 
@@ -21,7 +26,13 @@ describe('AddTaskDialogComponent - ', () => {
       declarations: [ AddTaskDialogComponent ],
       imports: [
         HttpClientTestingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatDialogModule,
+        MatInputModule,
+        MatDividerModule,
+        ReactiveFormsModule
       ],
       providers: [
         { provide: TodoService, useValue: spy },

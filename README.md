@@ -1,6 +1,8 @@
 # Todo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+1. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+2. The latest build of the project is deployed on https://shivani-jain.github.io/ (using github pages)
+3. To store data, mock API are used from https://mockapi.io/
 
 ## Development server
 
